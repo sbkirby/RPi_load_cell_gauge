@@ -108,3 +108,44 @@ Calibrating the gauge is simply a matter of connecting an accurate scale to the 
 
 I do not recommend attaching the scale directly to the wheels. This might deform the wheel since a large load is required to calibrate the gauge. I suggest that you use either the axles or some portion of the upper frame that moves when tensioning the blade.
 
+## Run at Startup
+![Crontab](https://github.com/sbkirby/RPi_load_cell_gauge/blob/master/images/edit_crontab.jpg)
+
+There's excellent Instructable Raspberry Pi: Launch Python script on startup to run a script at startup.
+
+Log into the RPi and change to the /Load_Cell directory.
+```
+cd /Load_Cell
+nano launcher.sh
+```
+Include the following text in launcher.sh
+```
+#!/bin/sh
+# launcher.sh
+# navigate to home directory, then to this directory, then execute python script, then back home
+
+cd /
+cd home/pi/Load_Cell
+sudo python BS_tension.py
+cd /
+```
+Exit and save the launcher.sh
+
+We need to make the script an executable.
+```
+chmod 755 launcher.sh
+```
+Test the script.
+```
+sh launcher.sh
+```
+Next, we need to edit crontab (the linux task manager) to launch the script at startup. Note: we have already created the /logs directory previously.
+```
+sudo crontab -e
+```
+This will bring the crontab window. Navigate to the end of the file and enter the following line.
+```
+@reboot sh /home/pi/Load_Cell/launcher.sh >/home/pi/logs/cronlog 2>&1
+```
+Exit and save the file, and reboot the RPi. The script should start the BS_tension.py script after the RPi reboots. The status of the script can be checked in the log files located in the /logs folder.
+
