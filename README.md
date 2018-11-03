@@ -84,11 +84,11 @@ The primary program is BS_tension.py and may be run from the command prompt. In 
 ```
 sudo python BS_tension.py
 ```
-As mentioned previously, the BS_tension.py script is the primary file for the scale. It imports the hx711.py file to read the load-cell via HX711 module. The version of hx711.py used for my project comes from tatobari/hx711py. I found this version provided the features I wanted.
+As mentioned previously, the BS_tension.py script is the primary file for the scale. It imports the hx711.py file to read the load-cell via HX711 module. The version of hx711.py used for my project comes from [tatobari/hx711py](https://github.com/tatobari/hx711py). I found this version provided the features I wanted.
 
-The LCD requires the RPi_I2C_driver.py by Denis Pleic and forked by Marty Tremblay, and can be found at MartyTremblay/RPi_I2C_driver.py.
+The LCD requires the RPi_I2C_driver.py by Denis Pleic and forked by Marty Tremblay, and can be found at [MartyTremblay/RPi_I2C_driver.py](https://gist.github.com/MartyTremblay/7a7fbf76c0c93734511b).
 
-Finally, I modified a version of William Henning'skeypad16.py to communicate with a MCP23008 and 4x4 keypad. I also added a function getkey to the file for use with the BS_tension.py script. The original version of this file can be located by reading the header of the file and following the links.
+Finally, I modified a version of [William Henning's](http://mikronauts.com/) keypad16.py to communicate with a MCP23008 and 4x4 keypad. I also added a function getkey to the file for use with the BS_tension.py script. The original version of this file can be located by reading the header of the file and following the links.
 
 The config.json file contains the data stored by program, and is modified by several Menu options and at shutdown. The gauge can be setup for either imperial (default) or metric displays. To change the scale to metric change the "imperial_units" parameter to false and save. This should be done when the BS_tension.py script is not running, otherwise the program might overwrite any changes made to the config.json file.
 
