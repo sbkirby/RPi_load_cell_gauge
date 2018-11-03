@@ -149,3 +149,6 @@ This will bring the crontab window. Navigate to the end of the file and enter th
 ```
 Exit and save the file, and reboot the RPi. The script should start the BS_tension.py script after the RPi reboots. The status of the script can be checked in the log files located in the /logs folder.
 
+## Operational Instructions
+
+Visit [Digital Bandsaw Blade Tension Gauge](https://www.instructables.com/id/Digital-Bandsaw-Blade-Tension-Gauge/) on Instructables for Instructions.
