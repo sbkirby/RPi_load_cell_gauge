@@ -1,2 +1,25 @@
-# digital_bandsaw_blade_tension_gauge
-Digital Bandsaw Blade Tension Gauge with RPi
+# Digital Bandsaw Blade Tension Gauge with RPi
+![Front View of Bandsaw](https://github.com/sbkirby/digital_bandsaw_blade_tension_gauge/blob/master/images/main_photo_1.jpg)
+![Photo of Controls](https://github.com/sbkirby/digital_bandsaw_blade_tension_gauge/blob/master/images/main_photo_2.jpg)
+
+This is a electronic/digital gauge to measure the tension of band saw blades in order to get the best performance from the blade and the saw. Once installed, this device provides a convenient method for measuring the force or tension a bandsaw blade without interfering with the blade guides or attaching something to the blade. This gauge/scale can be setup to display either imperial (default) or metric.
+
+There are several techniques for measuring band saw blade tension. They include commercially available gauges that attach to the blade, and range in price from $200 to $450. A simple and relatively inexpensive technique for [Bandsaw Tensioning](https://woodgears.ca/bandsaw/tension.html) can be found at Matthias Wandel's website. One of his simplest techniques uses only a digital caliper and a couple of small C-clamps. All of the commercially available methods and including Matthias's are based on the elastic stretching of steel and using Young's modulus to measure the force exerted to stretch the metal bandsaw.
+
+On other technique for tensioning a bandsaw blade is the "Flutter Test". With minimal tension on the blade, the bladesaw tracking is adjusted as would normally be done, and the blade guides are moved up and out of the way of the blade to allow it to flutter freely during this procedure. Next, the bandsaw is started, and the tension is increased until the blade runs straight and true without any "Flutter". American Woodworker has an excellent video on the The [Flutter Test](https://www.youtube.com/watch?v=z8zZuDosSy0) which explains this procedure in greater detail.
+
+The methods mentioned above are accurate and reliable, but requires attaching a device to the blade or moving or adjusting the blade guides in order to tension the blade. My device can be setup once after a blade change, and checked each time the blade is used without attaching a device or adjusting the blade guides. It is true that almost all commercially available bandsaws probably have a tension indicator which may or may not be accurate. After testing the scale on my saw I found it to be inaccurate. While searching for solutions, I ran across Carl Holmgren's video [Blade Tension 101](https://www.youtube.com/watch?v=FZ3CD6pqFZE) that inspired me to build this device. In Carl's video you will see how inaccurate his bandsaw tension gauge was, and the steps he took to calibrate the scale on his gauge.
+
+One source for the proper bandsaw blade tensions can be found at Timber Wolf Bandsaw Blades [Blade Tension](http://timberwolfblades.com/blade-tension.php).
+
+## Design Considerations
+![Existing Tension Gauge](https://github.com/sbkirby/digital_bandsaw_blade_tension_gauge/blob/master/images/existing_spring_tension_gauge.jpg)
+![View of Tension Spring](https://github.com/sbkirby/digital_bandsaw_blade_tension_gauge/blob/master/images/view_of_spring_on_bandsaw.jpg)
+
+I constructed my tension gauge in order to have an accurate, and readily available gauge to measure blade tension. A similar device was manufactured by the Carter Products Co. a few years ago, and sold for approximately $200 but is no longer available. This design is specific to the Hitachi Model CB-75F bandsaw, but might be adapted to fit other bandsaw models. One unique feature of the Model CB-75F is its ability to use a 75 mm wide blade. When a 75mm blade is tensioned to 12,000 psi it can exert approximately 1,900 lbs force on the band saw frame and load-cell. If I were using a band saw with a maximum capability of 3/4" wide blades and tensioned to 14,000 psi, the force on the frame would be 546 lbs. Therefore, the load-cell needs to be sized to handle the maximum amount of force (plus spare capacity) applied to them to prevent damaging the sensor. Therefore, I choose a 0-1000 Kg load-cell since this sensor is readily available; had the highest range of force; and is capable of handling the maximum load. Lastly, this load-cell must fit within the same space as the tensioning spring (#95 in Figure #1).
+
+![Hitachi Diagram of Tension Assembly](https://github.com/sbkirby/digital_bandsaw_blade_tension_gauge/blob/master/images/hitachi_diagram_of_tension_assembly.jpg)
+
+My preference for a micro-controller required the use of Python. This is my preferred language because I used it professionally for many years, and I like it very much. Therefore, I chose to use a Raspberry Pi Zero because it has Python; it's cheap; it has a large support group, and I had several of them. Probably any of the Raspberry Pi Models would work, but I chose the Zero because of space consideration. Processor speed isn't a requirement. Additionally, any of the Micropython boards might work just as well (e.g. ESP8266 or Adafruit Feather HUZZAH, etc.). There's no reason this program couldn't be adapted to an Arduino.
+
+
